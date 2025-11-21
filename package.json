@@ -1,0 +1,38 @@
+{
+  "name": "std-checkout-page",
+  "version": "1.2.4",
+  "main": "server.js",
+  "scripts": {
+    "dev": "env-cmd -f .env.development nodemon server.js",
+    "staging": "env-cmd -f .env.staging nodemon server.js",
+    "prod": "env-cmd -f .env.production nodemon server.js",
+    "dev:start": "node -r dotenv/config server.js dotenv_config_path=.env.development",
+    "dev:pm2:start": "pm2 start ecosystem.config.js --only std-checkout-page --env development",
+    "dev:pm2:reload": "pm2 reload ecosystem.config.js --only std-checkout-page --env development",
+    "dev:pm2:stop": "pm2 stop std-checkout-page",
+    "dev:pm2:delete": "pm2 delete std-checkout-page",
+    "staging:start": "node -r dotenv/config server.js dotenv_config_path=.env.staging",
+    "staging:pm2:start": "pm2 start ecosystem.config.js --only std-checkout-page --env staging",
+    "staging:pm2:reload": "pm2 reload ecosystem.config.js --only std-checkout-page --env staging",
+    "staging:pm2:stop": "pm2 stop std-checkout-page",
+    "staging:pm2:delete": "pm2 delete std-checkout-page",
+    "prod:start": "node -r dotenv/config server.js dotenv_config_path=.env.production",
+    "prod:pm2:start": "pm2 start ecosystem.config.js --only std-checkout-page --env production",
+    "prod:pm2:reload": "pm2 reload ecosystem.config.js --only std-checkout-page --env production",
+    "prod:pm2:stop": "pm2 stop std-checkout-page",
+    "prod:pm2:delete": "pm2 delete std-checkout-page",
+    "logs": "pm2 logs std-checkout-page",
+    "status": "pm2 status std-checkout-page"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "env-cmd": "^11.0.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
